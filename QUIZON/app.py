@@ -6,16 +6,14 @@ app = Flask(__name__)
 
 
 @app.route('/')
-@app.route('/index.html', methods=['GET','POST'])
+@app.route('/home_page.html')
 def home_page():
-    if request.method == 'POST':
-            data = request.form
-            #print(data)
-            hashedPassword = ph.hash(data["password"])
-            db.insert('users',username=data["username"],passwd=hashedPassword,firstname=data["firstname"],lastname=data["lastname"],email=data["emailid"],phone=data["phone"])
-    return render_template('index.html')
+    return render_template('home_page.html')
 
+
+@app.route('/take_quiz.html')
+def take_quiz():
+	return render_template('take_quiz.html')
 
 if __name__ == '__main__':
-    db = db_utils.db(database="forsale", user="root", password="root", host="localhost")
     app.run()
