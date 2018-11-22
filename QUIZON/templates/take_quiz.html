@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)http://learnplus.frontendmatter.com/student-take-quiz.html -->
+<html lang="en" style="height: 100%; overflow: hidden; position: relative;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Student - Take quiz</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+
+    <!-- Simplebar -->
+    <link type="text/css" href="{{url_for('static', filename='styles/simplebar.css')}}" rel="stylesheet">
+
+    <!-- Material Design Icons  -->
+    <link href="{{url_for('static', filename='styles/icon.css')}}" rel="stylesheet">
+
+    <!-- Roboto Web Font -->
+    <link href="{{url_for('static', filename='styles/css.css')}}" rel="stylesheet">
+
+    <!-- MDK -->
+    <link type="text/css" href="{{url_for('static', filename='styles/material-design-kit.css')}}" rel="stylesheet">
+
+    <!-- Sidebar Collapse -->
+    <link type="text/css" href="{{url_for('static', filename='styles/sidebar-collapse.min.css')}}" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="{{url_for('static', filename='styles/style.css')}}" rel="stylesheet">
+
+
+
+
+
+</head>
+
+<body style="height: 100%; position: relative;">
+
+    <div class="d-flex flex-column h-100">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand navbar-dark bg-primary m-0">
+
+            <!-- Toggle sidebar -->
+            <button class="navbar-toggler d-block" data-toggle="sidebar" type="button">
+    <span class="material-icons">menu</span>
+  </button>
+
+            <!-- Brand -->
+            <a href="http://learnplus.frontendmatter.com/student-dashboard.html" class="navbar-brand"><i class="material-icons">school</i> LearnPlus</a>
+
+            <!-- Search -->
+            <form class="navbar-search-form d-none d-md-flex">
+                <input type="text" class="form-control" placeholder="Search">
+                <button class="btn" type="button"><i class="material-icons">search</i></button>
+            </form>
+            <!-- // END Search -->
+
+            <div class="navbar-spacer"></div>
+
+            <!-- Menu -->
+            <ul class="nav navbar-nav d-none d-md-flex">
+                <li class="nav-item">
+                    <a class="nav-link" href="http://learnplus.frontendmatter.com/student-forum.html">Forum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://learnplus.frontendmatter.com/student-help-center.html">Get Help</a>
+                </li>
+            </ul>
+
+            <!-- Menu -->
+            <ul class="nav navbar-nav">
+
+                <li class="nav-item">
+                    <a href="http://learnplus.frontendmatter.com/student-cart.html" class="nav-link">
+        <i class="material-icons">shopping_cart</i>
+      </a>
+                </li>
+
+                <!-- User dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="http://learnplus.frontendmatter.com/student-take-quiz.html#" role="button"><img src="{{url_for('static', filename='images/celebPics/Cristiano Ronaldo.jpg')}}" alt="Avatar" class="rounded-circle" width="40"></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="http://learnplus.frontendmatter.com/student-account-edit.html">
+      <i class="material-icons">edit</i> Edit Account
+    </a>
+                        <a class="dropdown-item" href="http://learnplus.frontendmatter.com/student-profile.html">
+      <i class="material-icons">person</i> Public Profile
+    </a>
+                        <a class="dropdown-item" href="http://learnplus.frontendmatter.com/guest-login.html">
+      <i class="material-icons">lock</i> Logout
+    </a>
+                    </div>
+                </li>
+                <!-- // END User dropdown -->
+
+            </ul>
+            <!-- // END Menu -->
+
+        </nav>
+        <!-- // END Navbar -->
+
+        <div class="mdk-drawer-layout js-mdk-drawer-layout flex" data-fullbleed="" data-push="" data-has-scrolling-region="" data-responsive-width="554px" data-domfactory-upgraded="mdk-drawer-layout">
+            <div class="mdk-drawer-layout__content mdk-drawer-layout__content--scrollable" style="transform: translate3d(-256px, 0px, 0px); margin-left: 256px;">
+                <div class="container-fluid">
+
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="http://learnplus.frontendmatter.com/student-dashboard.html">Home</a></li>
+                        <li class="breadcrumb-item active">Quiz</li>
+                    </ol>
+                    <div class="card-group">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h4 class="mb-0"><strong>25</strong></h4>
+                                <small class="text-muted-light">TOTAL</small>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h4 class="text-success mb-0"><strong>3</strong></h4>
+                                <small class="text-muted-light">CORECT</small>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h4 class="text-danger mb-0"><strong>5</strong></h4>
+                                <small class="text-muted-light">WRONG</small>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h4 class="text-primary mb-0"><strong>17</strong></h4>
+                                <small class="text-muted-light">LEFT</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header bg-white">
+                            <div class="media align-items-center">
+                                <div class="media-left">
+                                    <h4 class="mb-0"><strong>#9</strong></h4>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="card-title">
+                                        Github command to deploy comits?
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+        <input type="checkbox" class="custom-control-input">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description">git push</span>
+      </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+        <input type="checkbox" class="custom-control-input">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description">git commit -m "message"</span>
+      </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+        <input type="checkbox" class="custom-control-input">
+        <span class="custom-control-indicator"></span>
+        <span class="custom-control-description">git pull</span>
+      </label>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="http://learnplus.frontendmatter.com/student-take-quiz.html#" class="btn btn-white">Skip</a>
+                            <a href="http://learnplus.frontendmatter.com/student-take-quiz.html#" class="btn btn-success float-right">Submit <i class="material-icons btn__icon--right">send</i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Sidebar -->
+            <div class="mdk-drawer js-mdk-drawer" data-align="end" data-position="right" data-domfactory-upgraded="mdk-drawer" data-persistent="" data-opened=""><div class="mdk-drawer__scrim" style=""></div>
+                <div class="mdk-drawer__content" style="">
+                    <div class="sidebar sidebar-right sidebar-light bg-white o-hidden">
+                        <div class="sidebar-p-y" data-simplebar="init" data-simplebar-force-enabled="true"><div class="simplebar-track vertical" style="visibility: hidden;"><div class="simplebar-scrollbar"></div></div><div class="simplebar-track horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar"></div></div><div class="simplebar-scroll-content" style="padding-right: 15px; margin-bottom: -30px;"><div class="simplebar-content" style="padding-bottom: 15px; margin-right: -15px;">
+                            <div class="sidebar-heading">Time left</div>
+                            <div class="countdown sidebar-p-x" data-value="4" data-unit="hour"></div>
+
+                            <div class="sidebar-heading">Pending</div>
+                            <ul class="list-group list-group-fit">
+                                <li class="list-group-item active">
+                                    <a href="http://learnplus.frontendmatter.com/student-take-quiz.html#">
+              <span class="media">
+                <span class="media-left">
+                  <span class="btn btn-white btn-circle">#9</span>
+                </span>
+                <span class="media-body media-middle">
+                  Github command to deploy comits?
+                </span>
+              </span>
+            </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="http://learnplus.frontendmatter.com/student-take-quiz.html#">
+                <span class="media">
+                  <span class="media-left">
+                    <span class="btn btn-white btn-circle">#10</span>
+                  </span>
+                  <span class="media-body media-middle">
+                    What's the difference between private and public repos?
+                  </span>
+                </span>
+              </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="http://learnplus.frontendmatter.com/student-take-quiz.html#">
+              <span class="media">
+                <span class="media-left">
+                  <span class="btn btn-white btn-circle">#11</span>
+                </span>
+                <span class="media-body media-middle">
+                  What is the purpose of a branch?
+                </span>
+              </span>
+            </a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="http://learnplus.frontendmatter.com/student-take-quiz.html#">
+              <span class="media">
+                <span class="media-left">
+                  <span class="btn btn-white btn-circle">#12</span>
+                </span>
+                <span class="media-body media-middle">
+                  Final Question?
+                </span>
+              </span>
+            </a>
+                                </li>
+                            </ul>
+                        </div></div></div>
+                    </div>
+                </div>
+            </div>
+            <!-- // END Sidebar -->
+        </div>
+
+
+
+
+        <div class="mdk-drawer js-mdk-drawer" id="default-drawer" data-align="start" data-position="left" data-domfactory-upgraded="mdk-drawer"><div class="mdk-drawer__scrim" style=""></div>
+            <div class="mdk-drawer__content ls-top-navbar-xs-up" style="">
+                <div class="sidebar sidebar-left sidebar-light bg-white o-hidden">
+                    <div class="sidebar-p-y" data-simplebar="init" data-simplebar-force-enabled="true"><div class="simplebar-track vertical" style="visibility: hidden;"><div class="simplebar-scrollbar"></div></div><div class="simplebar-track horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar"></div></div><div class="simplebar-scroll-content" style="padding-right: 15px; margin-bottom: -30px;"><div class="simplebar-content" style="padding-bottom: 15px; margin-right: -15px;">
+                        <div class="sidebar-heading">APPLICATIONS</div>
+                        <ul class="sidebar-menu">
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/student-dashboard.html">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">account_box</i> Student
+            </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/instructor-dashboard.html">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">school</i> Instructor
+            </a>
+                            </li>
+                        </ul>
+                        <div class="sidebar-heading">Layout</div>
+                        <ul class="sidebar-menu">
+                            <li class="sidebar-menu-item active">
+                                <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/student-take-quiz.html">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dashboard</i> Fluid Layout
+            </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/fixed-student-take-quiz.html">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dashboard</i> Fixed Layout
+            </a>
+                            </li>
+                        </ul>
+                        <div class="sidebar-heading">Student</div>
+                        <ul class="sidebar-menu">
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/student-browse-courses.html">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">search</i> Browse Courses
+            </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/student-view-course.html">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">import_contacts</i> View Course
+            </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/student-take-course.html">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">class</i> Take Course
+              <span class="sidebar-menu-badge badge badge-default ml-auto">PRO</span>
+            </a>
+                            </li>
+                            <li class="sidebar-menu-item active">
+                                <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/student-take-quiz.html">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i> Take a Quiz
+            </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/student-quiz-results.html">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">poll</i> Quiz Results
+            </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/student-account-edit.html">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">account_box</i> Edit Account
+            </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/student-my-courses.html">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">school</i> My Courses
+            </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/student-messages.html">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">comment</i> Messages
+              <span class="sidebar-menu-badge badge badge-default ml-auto">2</span>
+            </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/student-billing.html">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">monetization_on</i> Billing
+              <span class="sidebar-menu-badge badge badge-default ml-auto">$25</span>
+            </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/guest-login.html">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">lock_open</i> Logout
+            </a>
+                            </li>
+                        </ul>
+                        <!-- Components menu -->
+                        <div class="sidebar-heading">UI Components</div>
+                        <ul class="sidebar-menu">
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button sidebar-js-collapse" data-toggle="collapse" href="http://learnplus.frontendmatter.com/student-take-quiz.html#ui-components">
+      <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">tune</i>
+      UI Components
+      <span class="ml-auto sidebar-menu-toggle-icon"></span>
+    </a>
+                                <ul class="sidebar-submenu sm-condensed collapse" id="ui-components">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/ui-buttons.html">Buttons</a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/ui-cards.html">Cards</a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/ui-tabs.html">Tabs</a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/ui-tree.html">Tree</a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/ui-nestable.html">Nestable</a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/ui-notifications.html">Notifications</a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/ui-progress.html">Progress Bars</a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/ui-forms.html">Forms</a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/ui-tables.html">Tables</a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/ui-charts.html">Charts</a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/ui-calendar.html">Calendar</a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="http://learnplus.frontendmatter.com/ui-maps-vector.html">Maps Vector</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- // END Components Menu -->
+                    </div></div></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- jQuery -->
+    <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+
+    <!-- Bootstrap -->
+    <script src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+
+    <!-- Simplebar -->
+    <!-- Used for adding a custom scrollbar to the drawer -->
+    <script src="{{url_for('static', filename='js/simplebar.js')}}"></script>
+
+    <!-- MDK -->
+    <script src="{{url_for('static', filename='js/dom-factory.js')}}"></script>
+    <script src="{{url_for('static', filename='js/material-design-kit.js')}}"></script>
+
+    <!-- Sidebar Collapse -->
+    <script src="{{url_for('static', filename='js/sidebar-collapse.js')}}"></script>
+
+    <!-- App JS -->
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+
+
+    <!-- Required by countdown -->
+    <script src="{{url_for('static', filename='js/moment.min.js')}}"></script>
+    <!-- Easy Countdown -->
+    <script src="{{url_for('static', filename='js/jquery.countdown.min.js')}}"></script>
+
+
+
+    <!-- Init -->
+    <script src="{{url_for('static', filename='js/countdown.js')}}"></script>
+
+
+
+
+</body></html>
