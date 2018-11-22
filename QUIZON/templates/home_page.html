@@ -104,7 +104,6 @@
 
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="http://learnplus.frontendmatter.com/student-dashboard.html">Home</a></li>
-                        <li class="breadcrumb-item active">Quiz Results</li>
                     </ol>
                     <div class="page-heading">
                         <div class="media">
@@ -112,46 +111,57 @@
                                 <img src="{{url_for('static', filename='images/celebPics/Cristiano Ronaldo.jpg')}}" alt="" width="80" class="rounded">
                             </div>
                             <div class="media-body media-middle">
-                                <h4 class="mb-0"> Vue.js Deploy Quiz</h4>
-                                <small class="text-muted">submited on 2nd Feb 2016</small>
+                                <h4 class="mb-0">  Quiz</h4>   <!-- Title -->
                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Result</h4>
+                            <h4 class="card-title">Quizzes</h4>
                         </div>
                         <div class="card-body media">
+                            <div class="media-body media-left">
+                                <h4 class="mb-0"> Overall Rating</h4>  <!-- Overall score -->
+                            </div>
                             <div class="media-body media-middle">
-                                <h4 class="mb-0">5.8</h4>
-                                <span class="text-muted-light">Good</span>
+
                             </div>
+                                <h4 class="mb-0">{{ over }} pts  .</h4>       
                             <div class="media-right media-middle">
-                                <a href="./take_quiz.html" class="btn btn-primary">Take Quiz <i class="material-icons btn__icon--right">refresh</i></a>
-                            </div>
+                                <div class="media-right"><a href="./take_quiz.html" class="btn btn-primary">Take Quiz</a></div>
+                           <!--     <a href="./take_quiz.html" class="btn btn-primary">Take Quiz <i class="material-icons btn__icon--right">refresh</i></a>  -->
+                            </div>        
                         </div>
                     </div>
+                    
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Questions</h4>
+                            <h4 class="card-title">Previous Quizz Results</h4>                     <!-- Quiz title -->
                         </div>
                         <ul class="list-group list-group-fit mb-0">
+                            {% for p in quiz %}
                             <li class="list-group-item">
                                 <div class="media">
                                     <div class="media-left">
-                                        <div class="text-muted-light">1.</div>
+
+                                        <div class="text-muted-light">{{ loop.index }}.</div>
                                     </div>
-                                    <div class="media-body">Installation</div>
-                                    <div class="media-right"><span class="badge badge-success ">Correct</span></div>
+                                    <div class="media-body">{{ p['qname'] }}</div>
+                                    <h4 class="mb-0">{{ p['result'] }} pts   .</h4>   
+                                    <div class="media-right"><a href="./take_quiz.html" class="btn btn-primary">Take Quiz <i class="material-icons btn__icon--right">refresh</i></a></div>
                                 </div>
                             </li>
+                            {% endfor %}
+
+                        <!--
                             <li class="list-group-item">
                                 <div class="media">
                                     <div class="media-left">
                                         <div class="text-muted-light">2.</div>
                                     </div>
                                     <div class="media-body">The MVC architectural pattern</div>
-                                    <div class="media-right"><span class="badge badge-success ">Correct</span></div>
+                                    <h4 class="mb-0">5.8 pts </h4>   
+                                    <div class="media-right"><a href="./take_quiz.html" class="btn btn-primary">Take Quiz <i class="material-icons btn__icon--right">refresh</i></a></div>
                                 </div>
                             </li>
                             <li class="list-group-item">
@@ -160,7 +170,8 @@
                                         <div class="text-muted-light">3.</div>
                                     </div>
                                     <div class="media-body">Database Models</div>
-                                    <div class="media-right"><span class="badge badge-success ">Correct</span></div>
+                                    <h4 class="mb-0">5.8 pts </h4>   
+                                    <div class="media-right"><a href="./take_quiz.html" class="btn btn-primary">Take Quiz <i class="material-icons btn__icon--right">refresh</i></a></div> 
                                 </div>
                             </li>
                             <li class="list-group-item">
@@ -169,7 +180,8 @@
                                         <div class="text-muted-light">4.</div>
                                     </div>
                                     <div class="media-body">Database Access</div>
-                                    <div class="media-right"><span class="badge badge-danger ">Wrong</span></div>
+                                    <h4 class="mb-0">5.8 pts </h4>   
+                                    <div class="media-right"><a href="./take_quiz.html" class="btn btn-primary">Take Quiz <i class="material-icons btn__icon--right">refresh</i></a></div> 
                                 </div>
                             </li>
                             <li class="list-group-item">
@@ -178,7 +190,8 @@
                                         <div class="text-muted-light">5.</div>
                                     </div>
                                     <div class="media-body">Eloquent Basics</div>
-                                    <div class="media-right"><span class="badge badge-primary ">Pending Review</span></div>
+                                    <h4 class="mb-0">5.8 pts </h4>   
+                                    <div class="media-right"><a href="./take_quiz.html" class="btn btn-primary">Take Quiz <i class="material-icons btn__icon--right">refresh</i></a></div> 
                                 </div>
                             </li>
                             <li class="list-group-item">
@@ -187,9 +200,10 @@
                                         <div class="text-muted-light">6.</div>
                                     </div>
                                     <div class="media-body">Take Quiz</div>
-                                    <div class="media-right"><span class="badge badge-success ">Correct</span></div>
+                                    <h4 class="mb-0">5.8 pts </h4>   
+                                    <div class="media-right"><a href="./take_quiz.html" class="btn btn-primary">Take Quiz <i class="material-icons btn__icon--right">refresh</i></a></div> 
                                 </div>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
 
