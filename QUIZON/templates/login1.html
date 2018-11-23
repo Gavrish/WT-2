@@ -35,7 +35,7 @@
               var VALIDURL    =   'https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=';
               var SCOPE       =   'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email';
               var CLIENTID    =   '558152210762-m8dikeaepfce0rgn6psp3ghcl249lalv.apps.googleusercontent.com';
-              var REDIRECT    =   'http://127.0.0.1:8000'
+              var REDIRECT    =   'http://127.0.0.1:5000'
               var LOGOUT      =   'http://accounts.google.com/Logout';
               var TYPE        =   'token';
               var _url        =   OAUTHURL + 'scope=' + SCOPE + '&client_id=' + CLIENTID + '&redirect_uri=' + REDIRECT + '&response_type=' + TYPE;
@@ -134,12 +134,12 @@
                     <p class="card-subtitle">Access your account</p>
                 </div>
                 <div class="card-body">
-                    <form action="http://learnplus.frontendmatter.com/student-dashboard.html" method="get">
+                    <form action="process_login" method="post">
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Email Address">
+                            <input id="username" name="username" class="form-control" type="text" placeholder="Username" required="required" data-error="Name is required.">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Password">
+                            <input id="password" name="password" class="form-control" type="password" placeholder="Password" required="required">
                         </div>
                         <div class="form-group ">
                             <button type="submit" class="btn  btn-primary btn-block">
@@ -161,7 +161,7 @@
 
                      </div>
 
-                    Not yet a student? <a href="http://learnplus.frontendmatter.com/guest-signup.html">Sign up</a>
+                    	Not yet a student? <a href="signup.html">Sign up</a>
                 </div>
             </div>
         </div>
@@ -169,11 +169,11 @@
 
 
     <!-- jQuery -->
-    <script src="{{url_for('static', filename='js/jquery.min.js')}}')}}')}}"')}}></script>
+    <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
 
     <!-- Bootstrap -->
-    <script src="{{url_for('static', filename='js/popper.min.js')}}')}}"')}}></script>
-    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"')}}></script>
+    <script src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
 
     <!-- Simplebar -->
     <!-- Used for adding a custom scrollbar to the drawer -->

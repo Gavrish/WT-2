@@ -5,7 +5,7 @@ drop database quizon;
 create database quizon;
 \c quizon
 
-create table users(id serial, username varchar(30) primary key, overall float);
+create table users(id serial, username varchar(30) primary key, email varchar(50), passwd varchar(1000), overall float);
 
 create table quiz(qid serial primary key, qname varchar(15));  
 
