@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://learnplus.frontendmatter.com/guest-login.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+
+    <!-- Simplebar -->
+    <link type="text/css" href="{{url_for('static', filename='styles/simplebar.css')}}" rel="stylesheet">
+
+    <!-- Material Design Icons  -->
+    <link href="{{url_for('static', filename='styles/icon.css')}}" rel="stylesheet">
+
+    <!-- Roboto Web Font -->
+    <link href="{{url_for('static', filename='styles/css.css')}}" rel="stylesheet">
+
+    <!-- MDK -->
+    <link type="text/css" href="{{url_for('static', filename='styles/material-design-kit.css')}}" rel="stylesheet">
+
+    <!-- Sidebar Collapse -->
+    <link type="text/css" href="{{url_for('static', filename='styles/sidebar-collapse.min.css')}}" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="{{url_for('static', filename='styles/style.css')}}" rel="stylesheet">
+
+
+
+    <script>
+              var OAUTHURL    =   'https://accounts.google.com/o/oauth2/auth?';
+              var VALIDURL    =   'https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=';
+              var SCOPE       =   'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email';
+              var CLIENTID    =   '558152210762-m8dikeaepfce0rgn6psp3ghcl249lalv.apps.googleusercontent.com';
+              var REDIRECT    =   'http://127.0.0.1:5000'
+              var LOGOUT      =   'http://accounts.google.com/Logout';
+              var TYPE        =   'token';
+              var _url        =   OAUTHURL + 'scope=' + SCOPE + '&client_id=' + CLIENTID + '&redirect_uri=' + REDIRECT + '&response_type=' + TYPE;
+              var acToken;
+              var tokenType;
+              var expiresIn;
+              var user;
+              var loggedIn    =   false;
+
+              function login() {
+                  var win         =   window.open(_url, "windowname1", 'width=800, height=600');
+
+                  var pollTimer   =   window.setInterval(function() {
+                      try {
+                          console.log(win.document.URL);
+                          if (win.document.URL.indexOf(REDIRECT) != -1) {
+                              window.clearInterval(pollTimer);
+                              var url =   win.document.URL;
+                              acToken =   gup(url, 'access_token');
+                              tokenType = gup(url, 'token_type');
+                              expiresIn = gup(url, 'expires_in');
+                              win.close();
+
+                              validateToken(acToken);
+                          }
+                      } catch(e) {
+                      }
+                  }, 500);
+              }
+
+              function validateToken(token) {
+                  $.ajax({
+                      url: VALIDURL + token,
+                      data: null,
+                      success: function(responseText){
+                          getUserInfo();
+                          loggedIn = true;
+                          $('#loginText').hide();
+                          $('#logoutText').show();
+                      },
+                      dataType: "jsonp"
+                  });
+              }
+
+              function getUserInfo() {
+                  $.ajax({
+                      url: 'https://www.googleapis.com/oauth2/v1/userinfo?access_token=' + acToken,
+                      data: null,
+                      success: function(resp) {
+                          user    =   resp;
+                          console.log(user);
+                          $('#uName').text('Welcome ' + user.name);
+                          $('#imgHolder').attr('src', user.picture);
+                      },
+                      dataType: "jsonp"
+                  });
+              }
+
+
+              function gup(url, name) {
+                  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+                  var regexS = "[\\#&]"+name+"=([^&#]*)";
+                  var regex = new RegExp( regexS );
+                  var results = regex.exec( url );
+                  if( results == null )
+                      return "";
+                  else
+                      return results[1];
+              }
+
+              function startLogoutPolling() {
+                  $('#loginText').show();
+                  $('#logoutText').hide();
+                  loggedIn = false;
+                  $('#uName').text('Welcome ');
+                  $('#imgHolder').attr('src', 'none.jpg');
+              }
+
+          </script>
+
+        </head>
+
+<body class="login">
+
+
+    <div class="row">
+        <div class="col-sm-8 col-md-4 col-lg-4 mx-auto">
+            <div class="text-center m-2">
+                <div class="icon-block rounded-circle">
+                    <i class="material-icons align-middle md-36 text-muted">lock</i>
+                </div>
+            </div>
+            <div class="card bg-transparent">
+                <div class="card-header bg-white text-center">
+                    <h4 class="card-title">Login</h4>
+                    <p class="card-subtitle">Access your account</p>
+                </div>
+                <div class="card-body">
+                    <form action="process_login" method="post">
+                        <div class="form-group">
+                            <input id="username" name="username" class="form-control" type="text" placeholder="Username" required="required" data-error="Name is required.">
+                        </div>
+                        <div class="form-group">
+                            <input id="password" name="password" class="form-control" type="password" placeholder="Password" required="required">
+                        </div>
+                        <div class="form-group ">
+                            <button type="submit" class="btn  btn-primary btn-block">
+              <span class="btn-block-text">Login</span>
+            </button>
+                        </div>
+                        <div class="text-center">
+                            <a href="http://learnplus.frontendmatter.com/guest-login.html#"><small>Forgot Password?</small></a>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center bg-white">
+                <a href='#' onClick='login();' id="loginText"> Click here to Login Using Gmail
+
+                       </a>
+                       <a href="#" style="display:none" id="logoutText" target='myIFrame' onclick="myIFrame.location='https://www.google.com/accounts/Logout'; startLogoutPolling();return false;"> Click here to logout </a>
+                       <iframe name='myIFrame' id="myIFrame" style='display:none'></iframe>
+                       <div id='uName'></div>
+
+                     </div>
+
+                    	Not yet a student? <a href="signup.html">Sign up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+
+    <!-- Bootstrap -->
+    <script src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+
+    <!-- Simplebar -->
+    <!-- Used for adding a custom scrollbar to the drawer -->
+    <script src="{{url_for('static', filename='js/simplebar.js')}}"></script>
+
+    <!-- MDK -->
+    <script src="{{url_for('static', filename='js/dom-factory.js')}}"></script>
+    <script src="{{url_for('static', filename='js/material-design-kit.js')}}"></script>
+
+    <!-- Sidebar Collapse -->
+    <script src="{{url_for('static', filename='js/sidebar-collapse.js')}}"></script>
+
+    <!-- App JS -->
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+
+
+
+
+
+
+
+</body></html>
